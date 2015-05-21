@@ -16,5 +16,15 @@
 		{
 			# code...
 		}
+
+		function readINIparameters($url)
+		{
+			//Include the library.php & read the ini file for settings here.
+		}
+
+		function send($text)
+		{
+			//Methods for sending a request to chatscript server and return the response.
+		}
 	}
  ?>

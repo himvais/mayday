@@ -11,10 +11,11 @@
 <!-- Other parameter might break the code -->
 
 <?php 
-	
+	include 'TextHandler.php';
 	// to be read from an ini file at a later point of time. (temp)
+	
 	$mode_debug = true;
-
+	
 	//Implement the security class, check the integrity of the input and store data in local variables later. (temp)
 
 	if(!isset($_GET) or empty($_GET))
@@ -48,7 +49,7 @@
 		else
 			die("Invalid Request");
 	}elseif ($_GET['TYP'] == "TEXT") {
-		//Call the text input handler
+		$th = TextHandler();
 	}else{
 		if($mode_debug)
 			die("ERR:LVL2:Invalid values passed with the parameters");

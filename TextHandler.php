@@ -7,8 +7,9 @@
 <?php 
 	/**
 	* The Core class which provide methods for commuicating with the ChatScript server.
+	* This file will read the parameters from the standard config ini file so we can keep everything in one place.
 	*/
-	class ClassName extends AnotherClass
+	class TextHandler
 	{
 		
 		function __construct(argument)

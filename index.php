@@ -12,12 +12,19 @@
 
 <?php 
 	include 'TextHandler.php';
+<<<<<<< HEAD
 	include 'guard.php';
+=======
+>>>>>>> 629d55d9d6ae7d8ea25c49667ff6ce71034c58cb
 	// to be read from an ini file at a later point of time. (temp)
 	
 	$mode_debug = true;
 	
+<<<<<<< HEAD
 		$guard = new guard($_GET);
+=======
+	//Implement the security class, check the integrity of the input and store data in local variables later. (temp)
+>>>>>>> 629d55d9d6ae7d8ea25c49667ff6ce71034c58cb
 
 	if(!isset($_GET) or empty($_GET))
 	{

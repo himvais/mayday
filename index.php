@@ -50,6 +50,7 @@
 			die("Invalid Request");
 	}elseif ($_GET['TYP'] == "TEXT") {
 		$th = TextHandler();
+		$result = $th->send($_GET['VALUE']);
 	}else{
 		if($mode_debug)
 			die("ERR:LVL2:Invalid values passed with the parameters");

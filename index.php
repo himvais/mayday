@@ -1,5 +1,5 @@
 <!-- Project Mayday -->
-<!-- FILE - CORE-IOHandler V0.1(Base:PHP) -->
+<!-- FILE - CORE-IOHandler V0.2(Base:PHP) -->
 <!-- Written by @Himvais on 20/05/2015 -->
 
 <!-- Gateway for the core API -->
@@ -12,19 +12,15 @@
 
 <?php 
 	include 'TextHandler.php';
-<<<<<<< HEAD
+	include 'ResponseHandler.php';
 	include 'guard.php';
-=======
->>>>>>> 629d55d9d6ae7d8ea25c49667ff6ce71034c58cb
+	include 'helpers.php';
 	// to be read from an ini file at a later point of time. (temp)
 	
 	$mode_debug = true;
 	
-<<<<<<< HEAD
-		$guard = new guard($_GET);
-=======
+	//$guard = new guard($_GET);
 	//Implement the security class, check the integrity of the input and store data in local variables later. (temp)
->>>>>>> 629d55d9d6ae7d8ea25c49667ff6ce71034c58cb
 
 	if(!isset($_GET) or empty($_GET))
 	{
@@ -57,8 +53,16 @@
 		else
 			die("Invalid Request");
 	}elseif ($_GET['TYP'] == "TEXT") {
-		$th = TextHandler();
+		//Create a text handler, send the request to the chatscript server and get the response back.
+		$th = new TextHandler();
 		$result = $th->send($_GET['VALUE']);
+		//Create a response handler, break the response, match the opcode to find right parameters and fetch the result.
+		$send_string = getresultstring($result);
+		$opcode = getopcode($result);
+		$ResponseHandler = new ResponseHandler($opcode);
+		$status = $ResponseHandler->parse();
+		if($status) echo $send_string;
+		else echo "Not Working";
 	}else{
 		if($mode_debug)
 			die("ERR:LVL2:Invalid values passed with the parameters");

@@ -1,5 +1,5 @@
 <?php 
-	Class Guard{
+	 Class Guard{
 		
 
 		function __construct(){

@@ -5,8 +5,8 @@
 <!-- Gateway for the core API -->
 <!-- All the input/output happens using this channel -->
 <!-- This page accepts a GET Request (temp) with following parameters -->
-<!-- TYPE: TEXT/UI -->
-<!-- VALUE: input string -->
+<!-- TYP: TEXT/UI -->
+<!-- VAL: input string -->
 <!-- For testing cases keep the subtype = text and send the message in the value parameter -->
 <!-- Other parameter might break the code -->
 

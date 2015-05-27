@@ -12,19 +12,19 @@
 	class TextHandler
 	{
 		
-		public $host;
-		public $port;
-		public $bot;
-		public $null;
-		public $botprefix;
-		public $userprefix;
-		public $mode_debug;
-		public $response;
+		public $host = null;
+		public $port = null;
+		public $bot = null;
+		public $null = null;
+		public $botprefix = null;
+		public $userprefix = null;
+		public $mode_debug = null;
+		public $response = null;
 
 		function __construct()
 		{
 			//We want to load this things from an INI file, change it after INI helper is implemented.
-			$this->host = "1.22.08.4";  //  <<<<<<<<<<<<<<<<< YOUR CHATSCRIPT SERVER IP ADDRESS GOES HERE 
+			$this->host = "127.0.0.1";  //  <<<<<<<<<<<<<<<<< YOUR CHATSCRIPT SERVER IP ADDRESS GOES HERE 
 			$this->port = 1024;     	  // <<<<<<< your portnumber if different from 1024
 			$this->bot  = "";  		  // <<<<<<< desired botname, or "" for default bot
 			$this->null = "\x00";
@@ -42,11 +42,11 @@
 		function send($text)
 		{
 			//Step1: Get user ip address
-			$userip = ($_SERVER['X_FORWARDED_FOR']) ? $_SERVER['X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+			$userip = "127.0.0.1";
 			//Step2: Create a null terminated string (according to ChatScript Documentation)
-			$message = $userip.$null.$bot.$null.$text.$null;
+			$message = $userip.$this->null.$this->bot.$this->null.$this->text.$this->null;
 			//Step3: Open a socket to the ChatScript Server
-			if(!$fp=fsockopen($host,$port,$errstr,$errno,300))
+			if(!$fp=fsockopen($this->host,$this->port,$errstr,$errno,300))
 		    {
 		        if($this->mode_debug)
 		        	return "ERR:LVL5:Can't Connect to the ChatScript Server";

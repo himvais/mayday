@@ -8,7 +8,7 @@
 	*/
 	include 'Curl.php';
 	
-	use curl;
+	//use curl;
 	
 	class ResponseHandler
 	{

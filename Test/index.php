@@ -8,8 +8,7 @@
 <html>
 	<head>
 		<title>Mayday:Test</title>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+		<script src="jquery-2.1.0.min.js"></script>
 		<style>
 			html, body, ul, li, div{
 				margin: 0px;
@@ -97,6 +96,9 @@
 				        if(input){
 				        	$('#output').append("<li class='user'>USER: "+input+"</li>");
 				        	$('#in').val("");
+				        	$.get("http://127.0.0.1/mayday", {TYP:"TEXT", VAL:input}).done(function(data){
+				        		$('#output').append("<li class=''>MAYDAY: "+data+"</li>");
+				        	});
 				        }
 				        
 				        return false;

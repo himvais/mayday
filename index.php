@@ -18,7 +18,7 @@
 	// to be read from an ini file at a later point of time. (temp)
 	
 	$mode_debug = true;
-	
+
 	//$guard = new guard($_GET);
 	//Implement the security class, check the integrity of the input and store data in local variables later. (temp)
 
@@ -55,7 +55,7 @@
 	}elseif ($_GET['TYP'] == "TEXT") {
 		//Create a text handler, send the request to the chatscript server and get the response back.
 		$th = new TextHandler();
-		$result = $th->send($_GET['VALUE']);
+		$result = $th->send($_GET['VAL']);
 		//Create a response handler, break the response, match the opcode to find right parameters and fetch the result.
 		$send_string = getresultstring($result);
 		$opcode = getopcode($result);

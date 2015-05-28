@@ -24,7 +24,7 @@
 		function parse(){
 			foreach ($this->registry as $entry) {
 				$temp = explode(":", $entry);
-				if($temp == $this->opcode){
+				if($temp[0] == $this->opcode){
 					return true;
 				}else{
 					return false;

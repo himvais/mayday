@@ -3,4 +3,13 @@
 	//1. Security and Guard classes.
 	//2. INI file reading classes and functions.
 	//3. gettext and getopcode methods.
+
+	function getresultstring($value)
+	{
+		return $value;
+	}
+
+	function getopcode($value){
+		return "TEST123";
+	}
 ?>

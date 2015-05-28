@@ -44,15 +44,21 @@
 			//Step1: Get user ip address
 			$userip = "127.0.0.1";
 			//Step2: Create a null terminated string (according to ChatScript Documentation)
-			$message = $userip.$this->null.$this->bot.$this->null.$this->text.$this->null;
+			$message = $userip.$this->null.$this->bot.$this->null.$text.$this->null;
 			//Step3: Open a socket to the ChatScript Server
-			if(!$fp=fsockopen($this->host,$this->port,$errstr,$errno,300))
-		    {
-		        if($this->mode_debug)
-		        	return "ERR:LVL5:Can't Connect to the ChatScript Server";
-		        else
-		        	return "Connection Terminated";
-		    }
+			try {
+				if(!$fp=fsockopen($this->host,$this->port,$errstr,$errno,300))
+			    {
+			        if($this->mode_debug)
+			        	return "ERR:LVL5:Can't Connect to the ChatScript Server";
+			        else
+			        	return "Connection Terminated";
+			    }	
+			} catch (Exception $e) {
+				die("Can't connect to ChatScript Server");
+			}
+				
+
 		    //Step4: Write null terminated string to the socket if it's open
 		    fputs($fp,$message);
 		    //Step5: Get response from the server into a variable 

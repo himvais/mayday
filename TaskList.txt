@@ -2,3 +2,4 @@
 2. Implement the security methods (should we right now ?)
 3. Implement reading settings from ini file (imp)
 4. Implement debugging and logging system.
+5. Make sure everyone is working on their stuff properly.
